@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>{% block title %}AUF - {{ AUF_SITE }}{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}skin/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}skin/css/auf.css" media="all"/>
+    {% block extrahead %}{% endblock %}
+  </head>
+
+  <body class="{% block bodyclass %}{% endblock %}">
+
+    <div id="header">
+
+      <div id="logo">
+        <img src="{{ STATIC_URL }}skin/images/logo_auf.gif" alt="AUF"/>
+        <h1>{% block titre %}{{ AUF_SITE }}{% endblock %}</h1>
+        <h2>{% block sous_titre %}{% endblock %}</h2>
+      </div>
+
+      <div id="user-actions">
+        {% include "actions.html" %}
+      </div>
+
+    </div>
+
+    <div id="menu">
+        {% include "menu.html" %}
+    </div>
+
+    {% if breadcrumb %}
+    <div id="breadcrumb">
+        {% include "breadcrumb.html" %}
+    </div>
+    {% endif %}
+
+    <div class="visualClear"></div>
+
+    {% if messages %}
+        <ul class="messagelist">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="visualClear"></div>
+
+
+    <div id="main">
+      {% block main %}
+      {% endblock %}
+    </div>
+
+    <div id="footer">
+        {% include "footer.html" %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+    {% block main %}
+      {% if actualite %}
+      <div class="cadre">
+        <h2 class="titre"> {{ actualite.titre }} </h2>
+        <strong> {{ actualite.resume }} </strong>
+        <br />
+        <img src="{{ actualite.image.url }}" alt="{{ atualite_def.alt_img_text }} " />
+        {{ actualite.contenue }}
+      </div>
+      {% else %}
+        <p>Pas encore d'actualités </p>
+      {% endif %}
+      
+    {% endblock %}
+ 

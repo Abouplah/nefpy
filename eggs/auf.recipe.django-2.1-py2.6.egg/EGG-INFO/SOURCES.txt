@@ -1,0 +1,16 @@
+setup.cfg
+setup.py
+auf/__init__.py
+auf.recipe.django.egg-info/PKG-INFO
+auf.recipe.django.egg-info/SOURCES.txt
+auf.recipe.django.egg-info/dependency_links.txt
+auf.recipe.django.egg-info/entry_points.txt
+auf.recipe.django.egg-info/namespace_packages.txt
+auf.recipe.django.egg-info/not-zip-safe
+auf.recipe.django.egg-info/requires.txt
+auf.recipe.django.egg-info/top_level.txt
+auf/recipe/__init__.py
+auf/recipe/django/__init__.py
+auf/recipe/django/boilerplate.py
+auf/recipe/django/manage.py
+auf/recipe/django/recipe.py

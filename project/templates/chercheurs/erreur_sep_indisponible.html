@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load rigl %}
+{% load pagination_tags %}
+
+{% block css %}
+<style type="text/css">
+    #contenu h2 {
+        font-size:20px;
+        border-bottom:2px solid #3A3125;
+        color:#111;
+    }
+
+    #contenu table{
+        margin-top:20px;
+        font-size: 1em;
+        font-family: "Luxi sans", "Lucida Grande", Lucida, "Lucida Sans Unicode", sans-serif;
+        color: #333;
+    }
+
+    #contenu table th {
+        text-align:left;
+    }
+
+    #contenu table tr.odd {
+        background-color:#DDD;
+    }
+
+    div.pagination {
+        text-align:center;
+    }
+</style>
+{% endblock %}
+
+{% block main %}
+<h1>Erreur</h1>
+<p>
+Le répertoire des chercheurs du RIGL est actuellement indisponible.<br />
+Désolé des inconvénients.
+</p>
+{% endblock  %}

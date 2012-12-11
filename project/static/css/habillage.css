@@ -1,0 +1,813 @@
+/* --------------------------------------------------------- */
+/* Feuille de style des squelettes par defaut pour SPIP 2.0  */
+/* --------------------------------------------------------- */
+
+
+/* ------------------------------------------
+/* Typographie generale (style transversaux)
+/* ------------------------------------------ */
+html { font-size: 100%; } /* Cf.: http://pompage.net/pompe/definir-des-tailles-de-polices-en-CSS/ */
+body { font-size: 0.8125em; font-family: "Luxi sans", "Lucida Grande", Lucida, "Lucida Sans Unicode", sans-serif; color: #333; topmargin:0px}
+
+/* Titraille / Intertitres */
+h1,h2,h3,h4,h5,h6 { margin: 0; padding: 0; font-weight: bold; font-size: 12px; font-family: Verdana, Arial, Helvetica, sans-serif; 	 }
+h1 { font-size: 1.70em; color: #000; }
+h2,h3 {
+	font-size: 12px;
+	font-weight: normal;
+	color: #2AA4B9;
+}
+h2, h2 a, h2 a:focus, h2 a:hover, h2 a:active { color: #003; }
+h3 { font-size: 1.20em; font-weight: bold; }
+h3.spip {} /* Cf.: spip_style.css */
+hr.spip {} /* Cf.: spip_style.css */
+
+/* Autres enrichissements typo */
+strong { font-weight: bold; }
+em { font-style: italic; }
+abbr, acronym { border-bottom: 1px dotted; cursor: help; }
+small { font-size: 0.90em; color: #666; }
+dfn { font-weight: bold; color: #666; }
+del { text-decoration: line-through; }
+ins { color: red !important; text-decoration: none; }
+sup, sub { font-size: .8em; font-variant: normal; }
+
+/* Listes */
+ul.spip {} /* Cf.: spip_style.css */
+ol.spip {} /* Cf.: spip_style.css */
+dl {}
+dt {}
+dd {}
+
+/* Citations, code et poesie */
+cite {}
+q {}
+blockquote {}
+blockquote.spip {} /* Cf.: spip_style.css */
+blockquote.spip_poesie {} /* Cf.: spip_style.css */
+.spip_code {} /* Cf.: spip_style.css */
+.spip_cadre {} /* Cf.: spip_style.css */
+address {}
+
+/* Tableaux */
+table.spip {} /* Cf.: spip_style.css */
+
+/* Logos, documents et images */
+img { margin: 0; padding: 2; border: 0; }
+.spip_logos {} /* Cf.: spip_style.css */
+.spip_documents {} /* Cf.: spip_style.css */
+.spip_documents_center {} /* Cf.: spip_style.css */
+.spip_documents_left {} /* Cf.: spip_style.css */
+.spip_documents_right {} /* Cf.: spip_style.css */
+.spip_doc_titre {} /* Cf.: spip_style.css */
+.spip_doc_descriptif {} /* Cf.: spip_style.css */
+
+
+/* ------------------------------------------
+/* Disposition a l'ecran des blocs principaux
+/* ------------------------------------------ */
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: #cfa;/*
+	background-image: url(/static/images/fond.jpg);
+	background-repeat:repeat-x;*/
+}
+
+
+#page {
+	position: relative;
+	width: 1000px;
+	text-align: left;
+	background-color: #FFFFFF;
+	margin-top: 15px;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	padding: 0px;
+	border:solid 1px #573;
+}
+
+/*
+Jibril
+#entete {
+	width: 1000px;
+	margin: 0px;
+	padding-top: 0px;
+	background-color: #125456;
+	height: 100px;
+	padding-bottom: 0px;
+}
+#entete a.accueil {
+	display: block;
+	padding: 0px;
+}
+#entete a.accueil img.spip_logos {
+	vertical-align: bottom;
+	line-height: 1em;
+	padding: 0px;
+}
+#entete a.accueil #nom_site_spip { vertical-align: middle; font-size: 2.2em; font-family: Georgia, Times, serif; font-weight: normal; }
+#entete .formulaire_menu_lang { right: 0; top: 0.90em; display: block; width: 30%; }
+
+Jibril
+*/
+
+/* Jibril*/
+/***************** entete *****************/
+
+#entete {
+	position: relative;
+	height: 113px;
+	background: #fff url(/static/images/header.jpg) no-repeat;
+	background-position:right;
+}
+
+#topmenu {
+	position: relative;
+	top: 15px; left: 18px;	
+	height: 113px;
+	width: 100%;
+	text-align: right;
+}
+
+#cadreLogo {
+		   /*a#lien_logo img{*/ 
+	border: 1px #256 solid;
+	float:left;
+	display:block;
+	margin:5px 50px 5px 50px;
+}
+	
+#topmenu ul {
+	margin: 0; 
+	padding: 0;
+	list-style-type: none;
+	position:absolute;
+	right:42px; 
+}
+	
+#topmenu li {
+	display: inline;
+	list-style-type: none;
+	color: #ccc;
+	font-size: 11px;
+}
+	
+#topmenu li a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 11px;
+}
+	
+#topmenu li a:hover {
+	text-decoration: underline;
+}
+	
+.titreSite {
+	text-align:left;
+	margin:30px; 
+	font: bold 1.4em 'Trebuchet MS', Arial, Sans-serif;
+	color:#335511;
+}
+/*Fin Jibril*/
+
+#conteneur { clear: both; float: right; width: 690px; overflow: hidden; margin-right: 1px;}
+#contenu { padding-top: 0px; }
+
+.contenu_home{
+				margin:0px;
+				padding:0px;
+}
+	
+.contenuGauche {
+	padding: 0px;
+	float: left;
+	width: 49%;
+	margin: 0px 5px 0 0px;
+	background-image: url(/static/images/ActualiteConfremoDroite.png);
+	background-repeat:no-repeat;
+}
+
+#navigation {
+	width: 30%;
+	margin: 32px 2px 0px 2px;
+	overflow: hidden;
+}
+
+#extra { float: right; clear: right; width: 30%; margin-top: 1em; overflow: hidden; }
+
+
+#pied {
+	clear: both;
+	width: 100%;
+	margin: 0;
+	text-align: center;
+	font-size: 0.9em;
+	background-color: #333333;
+	border-top-width: 3px;
+	border-top-style: solid;
+	border-top-color: #006699;
+	height: 25px;
+	padding-top: 5px;
+	color:#FFFFFF;
+}
+#pied img {bgcolor:#333333; }
+
+#pied a { color:#FFFFFF; }
+#pied a:hover { color:#0f97ff; }
+/* Espaceur de blocs */
+.nettoyeur { clear: both; height: 0; margin: 0; padding: 0; border: 0; line-height: 1px; font-size: 1px; }
+
+/* Non visible a l'ecran */
+.invisible { position: absolute; top: -3000em; height: 1%; }
+
+
+/* ------------------------------------------
+/* Habillage des elements du contenu
+/* ------------------------------------------ */
+
+#hierarchie {
+				clear: both;
+				margin: 0 0 2px 0px;
+				padding: 5px 10px;
+				font-size: 0.90em;
+				background-color:#eee;
+				vertical-align: top;
+}
+#hierarchie li {
+				vertical-align: middle;
+}
+
+#hierarchie, #hierarchie a { color: #666; }
+#hierarchie li {display: inline; }
+
+.cartouche {
+	margin-bottom: 2em;
+	
+}
+.cartouche .spip_logos { float: right; margin-left: 16px; margin-bottom: 4px; }
+.cartouche p { margin: 0; padding: 0; clear: left; }
+.surtitre, .soustitre { font-size: 0.90em; color: #666; text-transform: uppercase; letter-spacing: 0.10em; }
+.cartouche .surtitre { margin-bottom: 0.30em; }
+.cartouche .soustitre { margin-top: 0.50em; margin-bottom: 0.30em; }
+.cartouche .traductions { font-size: 0.90em; }
+
+.chapo { margin-bottom: 1.50em; line-height: 1.40em; font-weight: bold; color: #669; }
+.texte { line-height: 1.60em; }
+.hyperlien { display: block; background: #EEE; padding: 0.50em 1em; font-weight: bold; color: #8B6F92; }
+.ps, .notes { margin-bottom: 2em; line-height: 1.40em; }
+.notes { clear: both; font-size: 0.90em; }
+
+abbr.published { border: 0; }
+
+/* Portfolio */
+#documents_portfolio { clear: both; margin: 2em auto; text-align: center; }
+#documents_portfolio .spip_logos { margin: 6px 3px 0 3px; border: 4px solid #DDD; }
+#documents_portfolio a.on .spip_logos { border-color: #F57900; }
+#documents_portfolio a:focus .spip_logos,
+#documents_portfolio a:hover .spip_logos,
+#documents_portfolio a:active .spip_logos { border-color: #8B6F92; }
+
+
+/* Habillage des forums
+---------------------------------------------- */
+.repondre { clear: both; margin-top: 2.50em; margin-right: 1em; text-align: right; font-weight: bold; }
+
+/* Habillage des forums */
+ul.forum { display: block; clear: both; margin: 0; padding: 0; }
+ul.forum, ul.forum ul { list-style: none; }
+.forum-fil { margin-top: 1.50em; }
+.forum-fil ul { display: block; margin: 0; padding: 0; margin-left: 1em; }
+.forum-chapo .forum-titre, .forum-chapo .forum-titre a { display: block; margin: 0; padding: 0; font-weight: bold; color: #333; }
+.forum-texte { margin: 0; padding: 0.50em 1em; color: #333; }
+.forum-texte .hyperlien {}
+.forum-texte .repondre { margin: 0; padding: 0.10em 0; text-align: right; }
+
+/* Boite d'un forum : eclaircissement progressif des bords */
+ul .forum-message { border: 1px solid #666; margin: 0; padding: 0; margin-bottom: 1em; }
+ul ul .forum-message { border: 1px solid #A4A4A4; }
+ul ul ul .forum-message { border: 1px solid #B8B8B8; }
+ul ul ul ul .forum-message { border: 1px solid #CCC; }
+ul ul ul ul ul .forum-message { border: 1px solid #E0E0E0; }
+ul ul ul ul ul ul .forum-message { border: 1px dotted #E0E0E0; }
+
+/* Boite de titre d'un forum : mise en couleur selon la profondeur du forum */
+ul .forum-chapo { border: 0; border-bottom: 1px dotted #B8B8B8; margin: 0; padding: 3px 6px 2px 6px; background: #C4E0E0; }
+ul ul .forum-chapo { background: #D4E8E8; }
+ul ul ul .forum-chapo { background: #E4F0F0; }
+ul ul ul ul .forum-chapo { background: #F4F8F8; border-bottom: 1px dotted #E0E0E0; }
+ul ul ul ul ul .forum-chapo { background: #FFF; }
+
+
+/* Habillage des petitions
+---------------------------------------------- */
+#signatures { clear: both; margin: 0 0 2em 0; padding: 0; background: none; }
+#signatures table { width: 100%; margin: 1em 0 0 0; }
+#signatures thead { text-align: center; color: #555; }
+#signatures td { padding: 0.50em; border: 2px solid #FEFEFE; vertical-align: top; }
+#signatures td.signature-date { background: #E4F0F0; text-align: center; white-space: nowrap; }
+#signatures td.signature-nom { background: #ECF4F4; text-align: center; }
+#signatures td.signature-nom small { display: block; }
+#signatures td.signature-message { background: #F4F8F8; }
+#signatures .formulaire_recherche { margin: 1em 0; text-align: right; } /*Cf.: spip_formulaires.css*/
+#signatures .formulaire_recherche input.text { width: 10em; text-align: left; } /*Cf.: spip_formulaires.css*/
+
+
+/* ------------------------------------------
+/* Sous-navigation et autres menus
+/* ------------------------------------------ */
+
+
+/* les news */
+
+.float-left img {
+	float:left;
+	margin:0px 10px 0px 0px;
+	width: 90px;
+	height: 68px;
+}
+
+.titre img{
+	width: 263px;
+	height: 350px;
+}
+#rightLeft{
+/* largeur de l'entete */
+	float:left;
+	position:relative; left: 0px;
+	margin:0px;
+	padding:0px 5px;
+	height:120px;
+			
+}
+
+	
+#rightLeft ul{
+	padding:0;
+	display:block;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+	
+#rightLeft ul li{
+	padding:1px; 
+	margin:1px 0px; 
+	display:block; 
+	height:0px; 
+	font-size:12px;
+	width:100%;
+
+}
+
+.plusActualite{
+
+margin-left: 350px;	
+		
+
+}
+.plusActualiteUni{
+
+margin-left: 350px;	
+
+}
+
+
+/* Habillage general des menus de navigation */
+.cadre{
+	width:670px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration: none;
+	margin-top: 5px;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-color: #fcfcfc;
+	background-image: url(/static/images/fond-cadre.jpg);
+	text-align: justify;
+}
+	.cadre h2 {
+	font-size: 100%;
+	font-weight: bold;
+	color: #fff;
+	margin: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;	/*width:576px;*/
+} 
+.cadre h3 {
+	font-size: 12px;
+	font-weight: bold;
+	color: #837D6F;
+	margin: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;	/*width:576px;*/
+} 
+.cadrebas{
+	width:700px;
+	background-image: url(/static/images/fond-bas.jpg);
+	background-position: bottom;
+	background-repeat: no-repeat;
+	height:35px;
+	}
+.cadre2{
+	width:660px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration: none;
+	background-image: url(/static/images/fond-cadre.jpg);	
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-color: #fcfcfc;
+}
+	.cadre2 h2 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #2AA4B9;
+	position: relative;
+	margin: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;	/*width:576px;*/
+} 
+
+	.cadre2 h3 {
+	font-size: 13px;
+	font-weight: bold;
+	color: #000;
+	position: relative;
+	margin: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;	/*width:576px;*/
+} 
+
+.titre{
+	/*background-image: url(/static/images/BaniereBleue.png);background-repeat: no-repeat;*/
+	background-color:#236d12;
+	color: #FFFFFF;
+	font-size: 100%;
+	text-align: left;
+	padding:5px;
+	font-weight: bold;
+	width:100%;
+	height:16px;
+	margin: 0px;
+}
+
+.texte{
+	padding: 15px;
+}
+
+
+.listeActu{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	padding-left: 10px;
+
+}
+.titreActu{
+	font-weight: bold;
+	color: #2AA4B9;
+}
+.texteActu{	padding-left: 15px;
+}
+.dateActu{
+	padding-left: 10px;
+	color: #2AA4B9;
+}
+
+.lienActu{
+	color: #FF0000;
+
+}
+
+
+
+.menu {
+	clear: both;
+	margin-bottom: 0px;
+	text-align: left;
+	vertical-align: middle;
+	padding: 0px;
+	margin-top: 0px;
+}
+.menu p {}
+.menu ul { margin: 0; padding: 0; }
+.menu ul li {}
+.menu ul li ul {  border: 0; }
+.menu ul li li { padding: 0; border: 0; }
+
+
+/* Sous Rubriques */
+
+/* Fin Sous Rubriques */
+
+/* Rubriques horizontales */
+/* Habillage general des menus de navigation */
+/* Habillage general des menus horizontaux */
+
+.menuh {
+	clear: both;
+	text-align: left;
+	vertical-align: middle;
+	padding: 0px;
+}
+.menuh p {}
+.menuh ul { margin: 0; padding: 0px; }
+.menuh ul li {
+	padding: 0px;
+}
+.menuh ul li ul {  border: 0; }
+.menuh ul li li { padding: 0px; border: 0; }
+
+/* =-=-=-=-=-=-=-[Menu_Horizontal_Menu 5]-=-=-=-=-=-=-=- */
+.menu2{
+	list-style:none;
+	color:rgb(255,255,255);
+	display:inline-block;
+	padding:0;
+	margin:0 auto;
+	float:right;
+	
+	
+
+}
+#menu-top {
+				padding:0;
+				margin:0 auto;
+				text-align:right;
+				height:33px;
+				
+}
+
+.menu2 li{
+	padding:0px;
+	margin:0px;
+	list-style:none;
+	background-image: url(/static/images/topMenuImages.png);
+	background-repeat: repeat-x;
+	display:inline;
+	color:rgb(255,255,255);
+	float:left;
+}
+.menu2 li a{
+	float:left;
+	background:url(/static/images/topMenuImages.png) 0px -30px no-repeat;
+	padding: 8px 10px;
+	color:rgb(255,255,255);
+	font-size:1.05em;
+	display:block;
+}
+
+.menu2 li a:hover{
+	background-position:0px -60px;
+	color:rgb(255,255,255);
+	text-decoration: none;
+}
+
+.menu2 li a.active, .menu2 li a.active:hover{line-height:30px; background:url('/static/images/topMenuImages.png') 0px -90px no-repeat; color:rgb(255,255,255);}
+
+/* =-=-=-=-=-=-=-[FinMenu_Horizontal_Menu 5]-=-=-=-=-=-=-=- */
+
+/* =-=-=-=-=-=-=-[SousRubrique_Menu 5]-=-=-=-=-=-=-=- */
+
+.menu5 {
+	
+	margin:0px;
+	list-style:none;
+	background:rgb(255,255,255);
+	width:300px;
+	
+}
+
+.menu5 li{
+	height:30px;
+	display:block;
+}
+
+.menu5 li a {
+	height: 18px;
+	padding: 10px 5px 5px 5px;
+	text-decoration: none;
+	color:#225533;
+	display:block;
+	text-decoration:none;
+	font-size: .8em;
+	font-weight: bold;
+	vertical-align: middle;
+	background:url('/static/images/menu5.gif') 0px 0px no-repeat;
+ }
+.menu5 li a:hover {
+  color: #000;
+	background:url('/static/images/menu5.gif') 0px -32px no-repeat;
+        text-align: right;
+        }
+
+		
+.menu5 li a.active, .menu li a.active:hover{background:url('/static/images/menu5.gif') 0px -64px no-repeat; 
+ padding: 8px 25px 0 10px;
+}
+
+.menu6 {
+	margin-top: 0px;
+	list-style:none;
+	background:rgb(255,255,255);
+}
+
+.menu6 li{
+	height:33px;
+	display:block;
+	background-color: rgb(42, 164, 185);
+	border-bottom:solid #FFFFFF 1px;
+	
+	/*background:url('/static/images/acturose.png') 0px 0px no-repeat;*/
+}
+
+.menu6 li a {
+	height: 33px;
+	padding: 8px 25px 0 10px;
+	text-decoration: none;
+	color:#ffffff;
+	display:block;
+	text-decoration:none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	vertical-align: middle;
+ }
+.menu6 li a:hover {
+	color: #666666;
+      padding: 8px 25px 0 10px;
+      text-align: left;
+			text-decoration:none;
+
+        }
+
+		
+.menu6 li a.active, .menu li a.active:hover{background:url('/static/images/acturose.png'); 
+ padding: 8px 25px 0 10px;
+}
+
+/* =-=-=-=-=-=-=-[Fin_SousRubrique_Menu 5]-=-=-=-=-=-=-=- */
+
+bloc {
+	background-image: url(/static/images/actu.png);
+	height: 96px;
+	width: 260px;
+}
+
+
+
+/* Pagination */
+.pagination { clear: both; text-align: right; font-size: 0.90em; color: #666; }
+.pagination .on { font-weight: bold; color: #666; }
+/* Rubriques */
+
+.rubriques{
+	width:300px;
+	list-style:none;
+	background:rgb(255,255,255);
+	margin: 0px;
+	padding: 0px 0px 3px 0px;
+}
+.rubriques li{
+	height:30px;
+	display:block;
+	background:url('/static/images/verMenuImages.png') 0px -37px no-repeat;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 1px;
+	margin-left: 0;
+	padding:0px;
+}
+.rubriques li a{
+	text-align:left;
+	height:30px;
+	padding-top: 8px;
+	padding-right: 5px;
+	padding-bottom: 0;
+	padding-left: 5px;
+	color:rgb(255,255,255);
+	display:block;
+	text-decoration:none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.rubriques li a:hover {
+	background:url('/static/images/verMenuImages.png') 0px 0px no-repeat;
+	color:rgb(255,255,255);
+	text-decoration:none;
+}
+
+.rubriques li a.active, .menu li a.active:hover {background:url('/static/images/verMenuImages.png') 0px -75px no-repeat; color:rgb(255,255,255);}
+.rubriques li a span{line-height:37px;}
+
+.formulaire_recherche {
+	/*background-image: url(/static/images/recherche.jpg);*/
+	height: 40px;
+	width: 290px;
+	padding: 5px;
+	margin: 5px 0px 2px 0px;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	clip: rect(0px,0px,0px,0px);
+} /*Cf.: spip_formulaires.css*/
+
+/* Listes d'articles et extraits introductifs */
+.articles ul li { clear: both; padding: 0.40em 0.20em; }
+.articles ul li h3 { margin: 0.30em 0; }
+.articles .spip_logos { float: right; clear: right; margin: 0 0 4px 16px; }
+.articles ul li .enclosures { float: right; text-align: right; max-width: 60%; margin: 0; }
+.articles ul li .introduction { margin-top: 0.30em; line-height: 1.40em; }
+
+
+/* Couleurs des liens
+---------------------------------------------- */
+a { color: #003399; text-decoration: none; }
+a:focus,a:hover,a:active { color: #009933; text-decoration: underline; }
+
+.h_menu{
+float:left;
+display:block;
+width:200px;
+border:solid 0px #000;
+margin:0px 15px 0px 40px;
+}
+.first_title {
+float:left;
+display:block;
+width:500px;
+height:25px;
+border:solid 0px #000;
+margin:40px 0px 0px 0px;
+}
+.h_entete { float:right;
+display:block;
+width:200px;
+border:solid 0px #000;
+}
+
+.h_menu .spip_logos{
+
+height:115px;
+width:200px;
+}
+
+.image_tmp {
+float:left;
+padding:10px;
+
+}
+.categorie_actu{
+	padding: 5px 0px 5px 15px;
+	background-color: #E6E6E6;
+	margin:0px;
+}
+
+/* Style css pour le bouton de recherche */
+.ChampRecherche{
+	clear:right;
+	_clear:none;
+	float:right;
+	border:1px solid #dcdcdc;
+	margin-right:22px;
+	padding:1px;
+	width:277px;
+	margin: 10px 2px 10px 0px;
+}
+.ChampRecherche form{
+  display:inline;
+}
+.ChampRecherche .TxtBox{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#919191;
+	width:229px;
+	padding:6px 11px 5px 11px;
+	border:0;
+	float:left;
+}
+.ChampRecherche .BtRecherche{
+    background:#FFF url('/static/images/fleche_recherche.gif?79652420884f') no-repeat right top;
+    width:26px;
+    height:26px;
+    display:block;
+    text-indent:-9999px;
+    overflow:hidden;
+    float:left;
+    border:0;
+}
+/* Bouton reherche */
+.cadre img{
+	min-width: 400px;
+	max-height:350px;
+	float: left;
+	padding: 10px;
+}
+.image_tmp{
+	min-width: 300px;
+	max-height:350px;
+	float: left;
+	padding: 10px;
+}

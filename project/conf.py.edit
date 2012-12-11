@@ -1,0 +1,32 @@
+# -*- encoding: utf-8 -*
+
+DATABASES = {
+    'default': {
+        #'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite.db',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST' : '',
+        'PORT' : '',
+    }
+}
+
+# Don't share this with anybody.
+SECRET_KEY = ''
+
+RIGL_URL = 'http://www.bi.refer.org/rigl/'
+SEP_URL = 'http://www.savoirsenpartage.auf.org/'
+
+ENV = 'DEV'
+
+# API SEP
+SEP_URLS = {
+    'DEV':'http://127.0.0.1:8000/api/chercheurs/',
+    #'TEST':'http://test.savoirsenpartage.auf.org/api/chercheurs/',
+    #'PROD':'http://www.savoirsenpartage.auf.org/api/chercheurs/',
+    }
+
+RAVEN_CONFIG = {
+    'dsn': '',
+}

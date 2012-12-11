@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: auf.django.piwik
+Version: 1.6
+Summary: Middleware pour incorper le code de tracking de Piwik
+Home-page: http://pypi.auf.org/auf.django.piwik
+Author: Olivier Larchevêque
+Author-email: olivier.larcheveque@auf.org
+License: GPL
+Description: UNKNOWN
+Keywords: Django Piwik
+Platform: UNKNOWN

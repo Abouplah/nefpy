@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: auf.django.references
+Version: 0.20
+Summary: Modèles Django pour les données de référence de l'AUF
+Home-page: http://pypi.auf.org/auf.django.references
+Author: Éric Mc Sween
+Author-email: eric.mcsween@auf.org
+License: GPL
+Description: UNKNOWN
+Platform: UNKNOWN

@@ -1,0 +1,10 @@
+{% load saml %}
+<ul>
+    {% if user.is_authenticated %}
+    <li class="username">{{ user }}</li>
+      <li><a href="{% url admin:index %}">Administration</a></li>
+      <li><a href="{% mellon_logout_url %}">Déconnexion</a></li>
+    {% else %}
+      <li><a href="{% mellon_login_url request.get_full_path %}">Connexion</a></li>
+    {% endif %}
+</ul>

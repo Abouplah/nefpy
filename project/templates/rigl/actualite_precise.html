@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+<div class="cadre">
+  {% block main %}
+    {% if actualites %}
+      {% for actualite in actualites %}
+        <h2 class="titre"> {{ actualite.titre }} </h2> 
+          {{ actualite.resume }}
+          <a href="/actualite/{{ actualite.id }}/">Lire la suite</a>
+        <br /><br />
+      {% endfor %}
+    {% else %}
+      <p>Pas encore d'actualités</p>
+    {% endif %}
+  {% endblock %}
+</div>

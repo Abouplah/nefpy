@@ -1,0 +1,8 @@
+{% block breadcrumb %}
+
+Vous êtes ici :
+{% for url, titre in breadcrumb %}
+<a href="{{ url }}">{{ titre }}</a>{% if not forloop.last %}<span class="separator">→</span>{% endif %}
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block main %}
+
+  <div class="menuh carousel_images">
+    {% if atualite_defilantes %}
+      <ul id="content" class="jcarousel-skin-tango">
+                {% for atualite_def in atualite_defilantes %}
+                    <li>
+                        <div class="left">
+                            <img src="{{ atualite_def.image.url }}" alt="{{ atualite_def.alt_img_text }} " />
+                        </div>
+                        <div class="right">
+                            <h2>{{ atualite_def.titre }}</h2>
+                            
+                                <br />
+                                <a href="{% url detail_actualites atualite_def.id %}"> Lire la suite </a>
+                            </p>
+                        </div>
+                        <div class="clear"></div>                
+                    </li>
+                {% endfor %}
+            </ul><!-- #content --> 
+    
+            <!-- CONTROLES DES IMAGES --> 
+            <div class="menuh jcarousel-control">           
+                <a href="javascript:void(0);" class="hover">1</a>              
+                <a href="javascript:void(0);" class="hover">2</a>
+            </div>
+    </div>
+        {% else %}
+            <p>Aucune actualité</p>
+        {% endif %}
+  <!-- Fin du caroussel -->
+      
+    <div class="contenu_home">
+        {% if actualites %}
+        {% for actualite in actualites %}
+    
+            <div class="contenuGauche">
+                <h3 class="categorie_actu">{{ actualite.categorie.nom }}</h3>
+                <div id="rightLeft">
+                        <ul>    
+                            <li class="float-left">        
+                                    <a href="{% url detail_actualites actualite.id %}">
+                                        <img alt="{{ actualite.alt_img_text }}" src="{{ actualite.image.url }}" />
+                                    </a>
+                                        <a href="{% url detail_actualites actualite.id %}"> {{ actualite.titre}}</a>
+                                    <br />
+                                    <span style=""><em>{{ actualite.date_saisie|date:"d M Y" }}</em></span>
+                            </li>
+                            <br />
+                        </ul>
+                    </div>
+            </div>
+    {% endfor %}
+    {% else %}
+<p>Aucune actualité en ce moment</p>
+{% endif %}    
+    </div>
+    
+  <div class="plusActualite">    
+        <a href="{% url toutes_actualites %}">
+      <img class="spip_logos" alt="" src="{{ STATIC_URL }}images/rubon6.jpg?1308819302" />
+    </a>
+  </div>
+{% endblock %}

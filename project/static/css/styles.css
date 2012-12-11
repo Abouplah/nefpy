@@ -1,0 +1,175 @@
+/***************************************
+	carousel
+***************************************/
+
+.carousel_images {
+	float:right;
+	width:680px;
+	margin-top: 0px;
+	padding: 0px;
+}
+
+.carousel_images img{
+	float:left;
+	width: 470px; /* important to be same as image width */
+	height: 150px; /* important to be same as image height */
+	position: relative; /* important */
+	overflow: hidden; /* important */
+	margin-top: 0px;
+	padding: 0px;
+
+}
+  /**
+ * This <div> element is wrapped by jCarousel around the list
+ * and has the classname "jcarousel-container".
+ */
+.jcarousel-container {
+	position: relative;
+	margin: 0;
+		
+}
+
+.jcarousel-clip {
+	z-index: 2; 
+	padding: 0px; 
+	margin: 0; 
+	overflow: hidden; 
+	position: relative; 
+}
+
+.jcarousel-list { 
+	z-index: 1; 
+	overflow: hidden; 
+	position: relative; 
+	top: 0; 
+	left: 0; 
+	margin: 0; 
+	padding: 0px; 
+}
+
+.jcarousel-item {
+	float: left; 
+	list-style: none; 
+	width: 680px; 
+	height: 189px; 
+	padding: 0; 
+	margin: 0;
+
+}
+
+/**
+ * The buttons are added dynamically by jCarousel before
+ * the <ul> list (inside the <div> described above) and
+ * have the classnames "jcarousel-next" and "jcarousel-prev".
+ */
+.jcarousel-skin-tango .jcarousel-container {}
+	
+.jcarousel-skin-tango .jcarousel-container-horizontal {}
+	
+.jcarousel-skin-tango .jcarousel-clip-horizontal,
+.jcarousel-skin-tango .jcarousel-item {
+
+	width:  747px; 
+	height: 155px;
+	margin:0;
+}
+
+
+/**
+ *  Autres
+ */
+.left {
+	display:inline;
+	float:left;
+	height:150px;
+	margin:0;
+	padding:0;
+	width:472px; 
+}
+
+.right {
+	display:inline;
+	float:left;
+	height:150px;
+	width:210px;
+	background:#2AA4B9 none repeat scroll 0 0;
+
+}
+
+.clear {clear:both;}
+
+.right h2{
+	font-size:14px;
+	font-weight:bold;
+	margin: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	padding-top: 5px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	width:200px;
+
+}
+
+p.pres { 
+	color: #FFFFFF; 
+	font-size: 12px; 
+	line-height: 15px;
+	margin: 0px;
+	padding-top: 1px;
+	padding-right: 3px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	width:190px;
+}
+ 
+p.pres a { color: #01AB32 }
+
+.jcarousel-control {
+	margin-top: 0px; 
+	margin-bottom: 10px; 
+	text-align: right;
+	margin-left: 580px;
+
+}
+
+.jcarousel-control a {
+	font-size: 75%;
+	text-decoration: none;
+	border: 1px solid #2AA4B9;
+	color: #2AA4B9;
+	font-weight: bold;
+	background-color:#FFFFFF;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 2px;
+	margin-left: 0;
+	padding-top: 0;
+	padding-right: 3px;
+	padding-bottom: 0;
+	padding-left: 5px;
+}
+
+.jcarousel-control a:hover {
+	color:#FFFFFF;
+	background-color:#2AB9A4;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 2px;
+	margin-left: 0;
+	padding-top: 0;
+	padding-right: 3px;
+	padding-bottom: 0;
+	padding-left: 5px;
+}
+
+.jcarousel-control a:focus, 
+.jcarousel-control a:active {outline: none;}
+
+ul { list-style-type: none;}
+select { width:80%; }
+table#repertoire { width: 100%; }
+
+input[type="text"] {width: 79%;}
+p.help {font-style: italic; font-size: 8px;}

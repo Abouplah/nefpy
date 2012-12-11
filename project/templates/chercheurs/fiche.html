@@ -1,0 +1,261 @@
+<style type="text/css">
+    #fiche_chercheur *{
+        color:#3A3125;
+        font-family: Verdana,Arial,sans-serif;
+       font-size:9pt; 
+        margin: 0;
+    }
+
+    #fiche_chercheur table td {
+      padding:5px;  
+    }
+    
+    #fiche_chercheur h2 {
+       margin-top:15px;
+        border-bottom: 2px solid #3A3125;
+        clear: right;
+        font-size: 150%;
+        font-weight: normal;
+        letter-spacing: -1px;
+        color:#3A3123;
+    }
+
+    .label {
+        font-weight: bold;
+        width: 150px;
+      }
+
+    ul.publications {
+      list-style:disc;
+    }
+
+    ul.publications li {
+      padding:5px 0;
+    }
+
+    td ul {
+      list-style:none;
+      padding:0;
+    }
+</style>
+{% extends 'base.html' %}
+
+{% block main %}
+{% if chercheur %}
+<h1>{{ chercheur.civilite }} {{ chercheur.prenom|title }} {{ chercheur.nom|upper }}</h1>
+
+<div id="fiche_chercheur">
+
+    <div>{{ chercheur.etablissement }}</div>
+    {% if chercheur.afficher_courriel %}
+    <div>{{ chercheur.courriel }}</div>
+    {% endif %}
+    {% comment %} <div><span class="label">Région: </span>{{ chercheur.region }}</div>{% endcomment %}
+
+    <h2>Informations académiques</h2>
+    <table>
+        <tr>
+            <td class="label">Statut:</td>
+            <td>{{ chercheur.statut }}</td>
+        </tr>
+        <tr>
+            <td class="label">Diplôme:</td>
+            <td>{{ chercheur.diplome }}</td>
+        </tr>
+        {% comment %}
+        <tr>
+            <td class="label">Domaine{{ chercheur.domaines_recherche|pluralize }} de recherche:</td>
+            <td>
+                <ul>
+                    {% for dr in chercheur.domaines_recherche %}
+                    <li>{{ dr }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">Communauté{{ chercheur.groupes_chercheur|pluralize }} de chercheurs:</td>
+            <td>
+                <ul>
+                    {% for gc in chercheur.groupes_chercheur %}
+                    <li>{{ gc }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% if chercheur.these %}
+        <tr>
+            <td>
+                <div class="label">Thèse:</div>
+                (ou tout autre travail de recherche &#8212; mémoire, HDR, etc. &#8212; encadré par un universitaire)
+            </td>
+            <td>
+                {% if chercheur.these_url %}
+                <i><a href="{{ chercheur.these_url }}">{{ chercheur.these_titre }}</a></i>,
+                {% else %}
+                <i>{{ chercheur.these_titre }}</i>, 
+                {% endif %}
+                {{ chercheur.these_etablissement }},
+                {{ chercheur.these_annee }}{% if chercheur.these_nb_pages %},
+                {{ chercheur.these_nb_pages }} pages{% endif %}.
+            </td>
+        </tr>
+        <tr>
+            <td class="label">Directeur:</td>
+            <td>{{ chercheur.these_directeur }}</td>
+        </tr>
+        {% endif %}
+        {% endcomment %}
+    </table>
+
+    <h2>Discipline, thèmes de recherche</h2>
+    <table>
+        {% if chercheur.discipline != "None" %}
+        <tr>
+            <td class="label">Discipline:</td>
+            <td>{{ chercheur.discipline }}</td>
+        </tr>
+        {% endif %}
+        {% if chercheur.theme_recherche != "None" %}
+        <tr>
+            <td class="label">Thèmes de recherche:</td>
+            <td>{{ chercheur.theme_recherche }}</td>
+        </tr>
+        {% endif %}
+        {% if chercheur.equipe_recherche %}
+        <tr>
+            <td class="label">Équipe de recherche:</td>
+            <td>{{ chercheur.equipe_recherche }}</td>
+        </tr>
+        {% endif %}
+        {% comment %}
+        {% if chercheur.mots_cles != "None" %}
+        <tr>
+            <td class="label">Mots-clés:</td>
+            <td>{{ chercheur.mots_cles }}</td>
+        </tr>
+        {% endif %}
+        {% if chercheur.url_site_web != "None" and chercheur.url_site_web %}
+        <tr>
+            <td class="label">Url site web:</td>
+            <td><a href="{{ chercheur.url_site_web }}">{{ chercheur.url_site_web }}</a></td>
+        </tr>
+        {% endif %}
+        {% if chercheur.url_blog != "None" %}
+        <tr>
+            <td class="label">Blog:</td>
+            <td><a href="{{ chercheur.url_blog }}">{{ chercheur.url_blog }}</a></td>
+        </tr>
+        {% endif %}
+        {% if chercheur.url_reseau_social != "None"  %}
+        <tr>
+            <td class="label">Réseau social:</td>
+            <td><a href="{{ chercheur.url_reseau_social }}">{{ chercheur.url_reseau_social }}</a></td>
+        </tr>
+        {% endif %}
+        {% endcomment %}
+    </table>
+
+    {% comment %}
+    {% if chercheur.membre_instance_auf or chercheur.expert_oif or chercheur.membre_association_francophone or chercheur.membre_reseau_institutionnel %}
+    <h2>Activités en Francophonie</h2>
+    <table>
+        {% if chercheur.membre_instance_auf %}
+        <tr>
+            <td class="label">Membre d'une instance de l'AUF</td>
+            <td>
+                {{ chercheur.get_membre_instance_auf_nom_display }},
+                {{ chercheur.membre_instance_auf_fonction }}, 
+                {{ chercheur.membre_instance_auf_dates }}
+            </td>
+        </tr>
+        {% endif %}
+        {% if chercheur.expert_oif %}
+        <tr>
+            <td class="label">A déjà été sollicité par l'OIF</td>
+            <td>{{ chercheur.expert_oif_details }}, {{ chercheur.expert_oif_dates }}</td>
+        </tr>
+        {% endif %}
+        {% if chercheur.membre_association_francophone %}
+        <tr>
+            <td class="label">Membre d'une association ou d'une société savante francophone</td>
+            <td>{{ chercheur.membre_association_francophone_details }}</td>
+        </tr>
+        {% endif %}
+        {% if chercheur.membre_reseau_institutionnel %}
+        <tr>
+            <td class="label">Membre d'instances d'un réseau institutionnel de l'AUF</td>
+            <td>
+                {{ chercheur.membre_reseau_institutionnel_nom }},
+                {{ chercheur.membre_reseau_institutionnel_fonction }},
+                {{ chercheur.membre_reseau_institutionnel_dates }}
+            </td>
+        </tr>
+        {% endif %}
+    </table>
+    {% endif %}
+
+    {% if chercheur.expertises %}
+    <h2>Expertises</h2>
+    {% for expertise in chercheur.expertises %}
+    <table>
+        <tr>
+            <td class="label">Titre de l'expertise:</td>
+            <td>{{ expertise.nom }}</td>
+        </tr>
+        {% if expertise.date %}
+        <tr>
+            <td class="label">Date:</td>
+            <td>{{ expertise.date }}</td>
+        </tr>
+        {% endif %}
+        {% if expertise.organisme_demandeur and expertise.organisme_demandeur_visible %}
+        <tr>
+            <td class="label">Organisme demandeur:</td>
+            <td>{{ expertise.organisme_demandeur }}</td>
+        </tr>
+        {% endif %}
+    </table>
+    <hr>
+    {% endfor %}
+    <table>
+        <tr>
+            <td class="label">Est disposé à réaliser des expertises pour l'AUF</td>
+            <td>{{ chercheur.expertises_auf|yesno:"Oui,Non" }}</td>
+        </tr>
+    </table>
+    {% endif %}
+
+    {% if chercheur.publications %}
+    <h2>Publications</h2>
+    <ul class="publications">
+        {% for publication in chercheur.publications %}
+        {% if publication.titre != "None" %}
+        <li>
+            <p> {% if publication.auteurs %}{{ publication.auteurs }},{% endif %}
+                <i>{{publication.titre}}</i>{% if publication.revue %}, 
+                {{publication.revue}}{% endif %}{% if publication.annee %}, 
+                {{publication.annee}}{% endif %}{% if publication.editeur %}, 
+                {{publication.editeur}}{% endif %}{% if publication.lieu_edition %}, 
+                {{publication.lieu_edition}}{% endif %}{% if publication.nb_pages %}, 
+                {{publication.nb_pages}} pages{% endif %}.
+                {% if publication.url %}
+                <br /><a href="{{ publication.url }}">{{ publication.url }}</a>
+                {% endif %}
+            </p>
+        </li>
+        {% else %}
+            {% if publication.publication_affichage %}
+            <li><p>{{publication.publication_affichage}}</p></li>
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endcomment %}
+  </div>
+  {% else %}
+  <h1>Erreur</h1>
+<div id="fiche_chercheur">Ce chercheur n'existe pas ou plus dans le répertoire.</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load cms_tags menu_tags %}
+
+   
+  {% block main %}
+  <div class="cadre">
+    <h2 class="titre">
+      {% block titre %}
+        {% placeholder titre_page %}
+      {% endblock %}
+    </h2>
+    <div class="image_tmp">
+      {% block image %}
+        {% placeholder "image" or %}  {% endplaceholder %}
+      {% endblock %}
+    </div>
+  {% placeholder contenu_page %}
+  </div>
+  {% endblock %}
+
+
+ 

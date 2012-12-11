@@ -1,0 +1,18 @@
+{% extends "form_utils/form.html" %}
+
+{% block fields %}
+{% for fieldset in form.fieldsets %}
+
+<fieldset class="module aligned{{ fieldset.classes }}">
+
+{% if fieldset.legend %}
+    <h2>{{ fieldset.legend }}</h2>
+{% endif %}
+
+{% with fieldset as fields %}
+    {% include "admin/form_utils/field.html" %}
+{% endwith %}
+
+</fieldset>
+{% endfor %}
+{% endblock %}

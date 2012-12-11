@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load cms_tags %}
+
+{% block main %}
+
+    <div class="titre">Recherche</div>
+
+    {% show_placeholder "Contenu_Page" "recherche" %}
+
+    {% if query %}
+        <h1>Résultats</h1>
+
+        <ul>
+        {% for result in page.object_list %}
+        <li>
+            <a href="{{ result.object.get_absolute_url }}">{{ result.object }}</a>
+        </li>
+        {% empty %}
+            <p>Aucun résultats.</p>
+        {% endfor %}
+        </ul>
+
+        {% if page.has_previous or page.has_next %}
+            <div>
+                {% if page.has_previous %}
+                    <a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">
+                {% endif %}
+                &laquo; Précédent
+                {% if page.has_previous %}
+                    </a>
+                {% endif %}
+                |
+                {% if page.has_next %}
+                    <a href="?q={{ query }}&amp;page={{ page.next_page_number }}">
+                {% endif %}
+                Suivant &raquo;
+                {% if page.has_next %}
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% else %}
+    {% endif %}
+{% endblock main %}

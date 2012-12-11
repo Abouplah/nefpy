@@ -1,0 +1,13 @@
+#header #branding h1 {
+    background: None !important;
+    line-height: 30px;
+    text-indent: 0 !important;
+    width: auto !important;
+}
+
+.actions li {
+    list-style-type: none;
+    display: inline;
+    padding: 0 1em;
+}
+

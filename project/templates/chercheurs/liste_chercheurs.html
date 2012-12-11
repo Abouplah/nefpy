@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load rigl %}
+{% load pagination_tags %}
+
+{% block css %}
+<style type="text/css">
+    #contenu h2 {
+        font-size:20px;
+        border-bottom:2px solid #3A3125;
+        color:#111;
+    }
+
+    #contenu table{
+        margin-top:20px;
+        font-size: 1em;
+        font-family: "Luxi sans", "Lucida Grande", Lucida, "Lucida Sans Unicode", sans-serif;
+        color: #333;
+    }
+
+    #contenu table th {
+        text-align:left;
+    }
+
+    #contenu table tr.odd {
+        background-color:#DDD;
+    }
+
+    div.pagination {
+        text-align:center;
+    }
+</style>
+{% endblock %}
+{% block js %}
+<script type="text/javascript"  src="{{ STATIC_URL }}/ajax_select/js/jquery-ui.min.js"></script>
+{% endblock %}
+
+{% block main %}
+{% autopaginate chercheurs 20 %}
+
+<h1>Répertoire des chercheurs</h1>
+
+<p>
+Bienvenue sur le répertoire des chercheurs du Réseau Interuniversitaire des Grands Lacs.
+</p>
+<p>
+Ce répertoire vise à renforcer la visibilité et les interactions des chercheurs de la région. Il est à la disposition des étudiants doctorants, enseignants et chercheurs du Burundi, de la République Démocratique du Congo et du Rwanda.
+</p>
+
+<h2>S'inscrire</h2>
+
+<p>
+    <a href="#" id="btninscription">Inscription</a>
+</p>
+<div id="inscription" style="display:none;">
+    <p>
+    L'inscription au répertoire des chercheurs du RIGL se fait via le répertoire des chercheurs du site Savoirs en partage de l'AUF.
+    </p>
+    <p>
+    En cliquant sur ce lien, vous serez redirigé vers le site Savoirs en partage de l'AUF. Une fois inscrit dans le répertoire de Savoirs en partage de l'AUF, vous serez automatiquement inscrit au répertoire de RIGL et vous bénéficierez de l'ensemble des services de SEP.
+    </p>
+    <p>
+    <a href="{{ SEP_URL }}chercheurs/inscription/" target="_blank">S'inscrire au répertoire des chercheurs de Savoirs en partage</a>
+    </p>
+</div>
+
+<h2>Rechercher</h2>
+
+<form method="get" action="">
+    <table>
+      {% with search_form as form %}
+        {% include "render_search_form.html" %}
+      {% endwith %}
+        <tr><th></th><td><input type="submit" class="bouton" value="Rechercher" /></td></tr>
+    </table>
+</form>
+
+{% paginate %}
+
+<h2>Résultats</h2>
+
+{{ nb_chercheurs }} chercheurs correspondant à votre recherche
+
+{% if sep_indisponible %}
+    <p>Le répertoire des chercheurs du RIGL est actuellement indisponible.<br />
+    Désolé des inconvénients.</p>
+{% else %}
+    {% if nb_chercheurs != 0 %}
+        <table id="repertoire">
+        <tr>
+            <th>{% sort_link 'nom' 'Nom' %}</th>
+            <th>{% sort_link 'etablissement' 'Établissement' %}</th>
+            <th>{% sort_link 'pays' 'Pays' %}</th>
+        </tr>
+        {% for chercheur in chercheurs %}
+        <tr class="{% cycle 'odd' 'notodd' %}">
+            <td><a href="{{ chercheur.id }}/">{{ chercheur.nom|upper }} {{ chercheur.prenom|title }}</a></td>
+            <td>{% firstof chercheur.etablissement chercheur.etablissement_autre_pays_nom %}</td>
+            <td>{% firstof chercheur.pays chercheur.etablissement_pays_autre_nom %}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <p>Il n'y a aucun chercheur dans le répertoire</p>
+    {% endif %}
+{% endif %}
+
+{% paginate %}
+
+{% endblock  %}

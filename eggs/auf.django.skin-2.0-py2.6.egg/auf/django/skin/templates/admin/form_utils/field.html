@@ -1,0 +1,13 @@
+{% for field in fields %}
+    {% if field.is_hidden %}
+        {{ field }}
+    {% else %}
+        <div class="form-row {{ field.name }}">
+        <div {{ field.row_attrs }}>
+          {{ field.errors }}
+          {{ field.label_tag }}
+          {{ field }}
+        </div>
+        </div>
+    {% endif %}
+{% endfor %}

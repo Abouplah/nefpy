@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: auf.django.skin
+Version: 2.0
+Summary: Élements de la charte graphique AUF
+Home-page: http://pypi.auf.org/auf.django.skin
+Author: Olivier Larchevêque
+Author-email: olivier.larcheveque@auf.org
+License: GPL
+Description: UNKNOWN
+Keywords: AUF skin charte graphique CSS HTML
+Platform: UNKNOWN

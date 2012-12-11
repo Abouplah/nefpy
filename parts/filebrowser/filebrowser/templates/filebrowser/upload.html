@@ -1,0 +1,77 @@
+{% extends "admin/base_site.html" %}
+
+<!-- LOADING -->
+{% load i18n adminmedia fb_tags %}
+
+<!-- STYLESHEETS -->
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% custom_admin_media_prefix %}css/forms.css" />
+    <link rel="stylesheet" type="text/css" href="{{ settings_var.URL_FILEBROWSER_MEDIA }}css/filebrowser.css" />
+{% endblock %}
+
+<!-- JAVASCRIPTS -->
+{% block extrahead %}
+    {{ block.super }}
+    <script type="text/javascript" src="../../jsi18n/"></script>
+    <script type="text/javascript" src="{% custom_admin_media_prefix %}js/core.js"></script>
+{% endblock %}
+
+<!-- COLTYPE/BODYCLASS -->
+{% block bodyclass %}change-form filebrowser{% if query.pop %} popup{% endif %}{% endblock %}
+{% block content-class %}content-flexible{% endblock %}
+
+<!-- BREADCRUMBS -->
+{% block breadcrumbs %}{% include "filebrowser/include/breadcrumbs.html" %}{% endblock %}
+
+<!-- CONTENT -->
+{% block content %}
+<div id="content-main">
+    <form action="{% url fb_do_upload %}" method="post" enctype="multipart/form-data">
+        <fieldset class="module aligned">
+            <div class="form-row">
+
+                <input  type="hidden"
+                        name="session_key"
+                        value="{{ session_key }}" />
+                <input  type="hidden"
+                        name="folder"
+                        value="{{ query.dir }}" />
+                <input  type="hidden"
+                        name="get"
+                        value="{{ request.META.QUERY_STRING }}" />
+
+                 <input type="file" name="Filedata" />
+
+            </div>
+        </fieldset>
+        <fieldset class="module aligned collapse closed">
+            <h2>{% trans "Help" %}</h2>
+            <div class="form-row">
+                {% for extension in settings_var.EXTENSIONS.items %}
+                    {% ifnotequal extension.0 'Folder' %}
+                        <div class="column span-4"><label class="required">{% if forloop.first %}{% trans "Allowed" %}:{% else %}&nbsp;{% endif %}</label></div>
+                        <div class="column span-12 last"><p>{{ extension.0|safe }} ({{ extension.1|join:", "|safe }})</p></div><br clear="all" />
+                    {% endifnotequal %}
+                {% endfor %}
+            </div>
+            <div class="form-row">
+                <div class="column span-4"><label class="required">{% trans "Max. Filesize" %}:</label></div>
+                <div class="column span-12 last"><p>{{ settings_var.MAX_UPLOAD_SIZE|filesizeformat }}</p></div><br clear="all" />
+            </div>
+            {% if settings_var.CONVERT_FILENAME %}
+                <div class="form-row">
+                    <div class="column span-16 last"><p>
+                        {% trans "The Name will be converted to lowercase. Spaces will be replaced with underscores." %}
+                    </p></div><br clear="all" />
+                </div>
+            {% endif %}
+        </fieldset>
+
+        <div class="submit-row">
+            <input class="default" type="submit" name="_save" value='{% trans "Upload" %}' />
+        </div>
+
+    </form>
+</div>
+{% endblock %}
